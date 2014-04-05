@@ -1,3 +1,7 @@
 .vagrant
 *.swp
 *.un~
+
+/vendor/
+
+composer.lock
