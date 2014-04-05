@@ -1,10 +1,4 @@
-hhvm-bootstrap
+Low Hanging Fruit
 ==============
 
-Quickstart for local HHVM developement.
-
-```
-vagrant up
-```
-
-Then [go here](http://localhost:8000)
+Contribute to OSS the easy way
