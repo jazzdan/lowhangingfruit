@@ -10,11 +10,7 @@ if (array_key_exists('language', $_GET)) {
   $result = $searcher->all();
 }
 
-echo '<pre>';
-print_r($result);
-exit;
-
 function render(string $path, $data) {
   require('../views/layout.php');
 }
-render('home', 'testing');
+render('home', $result);
