@@ -1,6 +1,7 @@
 .vagrant
 *.swp
 *.un~
+*.swo
 
 /vendor/
 
