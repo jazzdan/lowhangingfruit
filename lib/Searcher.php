@@ -1,14 +1,22 @@
 <?hh namespace LHF;
 
-use \Github\Client;
+use \Requests;
 
 class Searcher {
   
-  public function __construct(Client $client) {
-    $this->client = $client;
+  public function all() {
+    return $this->fetch('documention+state:open&sort=created&order=asc');
   }
 
-  public function all() {
+  public function byLanguage(string $language): stdClass {
+    return $this->fetch(
+      "documention+language:$language+state:open&sort=created&order=asc"
+    );
+  }
+
+  private function fetch(string $query) {
+    $resp = Requests::get("https://api.github.com/search/issues?q=$query");
+    return json_decode($resp->body);
   }
 }
 

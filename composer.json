@@ -11,7 +11,9 @@
         }
     ],
     "require": {
-      "knplabs/github-api": "*"
+      "knplabs/github-api": "*",
+      "rmccue/requests": "dev-master"
+      
     },
     "require-dev": {
       "phpunit/phpunit": "*"
