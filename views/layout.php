@@ -7,6 +7,7 @@
   </head>
 
   <body>
+    <h1>Low Hanging Fruits</h1>
     <? require "../views/$path.php" ?>
   <body>
 

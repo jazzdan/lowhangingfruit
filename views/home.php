@@ -1,4 +1,4 @@
-<h1><?= $data ?></h1>
+<p>There are <?= count($data) ?> fruits waiting to be shorn from the tree!</p>
 
 <form class="pure-form" method="GET">
   <input name="language" type="text" value="<?= getInput('language') ?>" />
