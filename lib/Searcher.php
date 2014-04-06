@@ -6,24 +6,24 @@ use \stdClass;
 
 class Searcher {
 
-  public function find(?Map<string, string> $query=null): Vector<Issue> {
-    return $this->fetch(static::stringifyQuery($query));
+  public function find(string $query, ?Map<string, string> $params=null): Vector<Issue> {
+    return $this->fetch($query, static::stringifyParams($params));
   }
 
-  private function fetch(string $query = ''): Vector<Issue> {
+  private function fetch(string $query, string $params): Vector<Issue> {
     $resp = Requests::get(
-      "https://api.github.com/search/issues?q=documention+assignee:none+$query+state:open&sort=created&order=asc"
+      "https://api.github.com/search/issues?q=$query+$params&sort=created&order=asc"
     );
     $issues = json_decode($resp->body, true)['items'];
     return Issue::fromJSONArray($issues);
   }
 
-  private function stringifyQuery(?Map<string, string> $query): string {
-    if (!$query) {
+  private function stringifyParams(?Map<string, string> $param_map): string {
+    if (!$param_map) {
       return '';
     }
     $params = array();
-    foreach ($query as $key => $value) {
+    foreach ($param_map as $key => $value) {
       if ($value) {
         $params[] = "$key:$value";
       }

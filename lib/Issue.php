@@ -33,11 +33,11 @@ class Issue {
       } else {
         $description = '-';
       }
-      return $description;
+      return htmlentities($description);
     }
 
     public function getTitle(): string {
-      return $this->title;
+      return htmlentities($this->title);
     }
 
     public function getURL(): string {

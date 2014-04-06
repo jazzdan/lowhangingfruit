@@ -16,7 +16,13 @@
       <li>
         <a class="issue" href="<?= $issue->getURL() ?>" target="_blank">
           <h3 class="title"><?= $issue->getTitle() ?></h3>
-          <p class="description"><small><code><?= $issue->getDescription() ?></code></small></p>
+          <p class="description">
+            <small>
+              <code>
+                <?= $issue->getDescription() ?>
+              </code>
+            </small>
+          </p>
         </a>
       </li>
     <? } ?>

@@ -10,7 +10,9 @@ use \HH\Map;
 
 View::render(
   'home',
-  (new Searcher())->find(Map {
-    'language' => Input::get('language')
+  (new Searcher())->find('documentation', Map {
+    'assignee' => 'none',
+    'language' => Input::get('language'),
+    'state' => 'open'
   })
 );
