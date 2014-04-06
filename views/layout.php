@@ -19,12 +19,13 @@
         text-align: center;
       }
       .issue {
-        border: 1px solid #eee;
+        border: 1px solid #ccc;
         border-radius: 4px;
         color: inherit;
         display: block;
         margin-bottom: 10px;
         padding: 15px;
+        position: relative;
       }
       .issue:hover {
         border-color: #0078e7;
@@ -35,6 +36,12 @@
           background-color: #eee;
           margin-bottom: 0;
           padding: 5px 8px;
+        }
+        .issue .repo {
+          color: #ccc;
+          position: absolute;
+          top: 0;
+          right: 15px;
         }
         .issue .title {
           margin-bottom: 15px;

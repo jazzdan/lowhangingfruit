@@ -15,6 +15,7 @@
     <? foreach ($data as $issue) { ?>
       <li>
         <a class="issue" href="<?= $issue->getURL() ?>" target="_blank">
+          <h4 class="repo"><?= $issue->getRepositoryName() ?></h4>
           <h3 class="title"><?= $issue->getTitle() ?></h3>
           <p class="description">
             <small>

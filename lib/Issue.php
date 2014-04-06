@@ -36,6 +36,16 @@ class Issue {
       return htmlentities($description);
     }
 
+    public function getRepositoryName(): string {
+      $matches = [];
+      preg_match(
+        '/https:\/\/github\.com\/([a-zA-Z-\._\d]+\/[a-zA-Z-\._\d]+)\//',
+        $this->url,
+        $matches
+      );
+      return array_key_exists(1, $matches) ? $matches[1] : '';
+    }
+
     public function getTitle(): string {
       return htmlentities($this->title);
     }
