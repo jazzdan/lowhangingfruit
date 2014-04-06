@@ -30,4 +30,5 @@ class Searcher {
     }
     return implode('+', $params);
   }
+
 }

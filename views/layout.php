@@ -31,7 +31,7 @@
         .issue .description {
           background-color: #eee;
           margin-bottom: 0;
-          padding: 5px;
+          padding: 5px 8px;
         }
         .issue .title {
           margin-bottom: 15px;
