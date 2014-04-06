@@ -5,23 +5,30 @@ use \Requests;
 use \stdClass;
 
 class Searcher {
-  
-  public function all(): Vector<Issue> {
-    return $this->fetch();
+
+  public function find(string $query, ?Map<string, string> $params=null): Vector<Issue> {
+    return $this->fetch($query, static::stringifyParams($params));
   }
 
-  public function byLanguage(string $language): Vector<Issue> {
-    return $this->fetch(
-      "language:$language"
-    );
-  }
-
-  private function fetch(string $query = ''): Vector<Issue> {
+  private function fetch(string $query, string $params): Vector<Issue> {
     $resp = Requests::get(
-      "https://api.github.com/search/issues?q=documention+assignee:none+$query+state:open+in:title,description&per_page=100"
+      "https://api.github.com/search/issues?q=$query+$params&per_page=100"
     );
     $issues = json_decode($resp->body, true)['items'];
     return Issue::fromJSONArray($issues);
   }
-}
 
+  private function stringifyParams(?Map<string, string> $param_map): string {
+    if (!$param_map) {
+      return '';
+    }
+    $params = array();
+    foreach ($param_map as $key => $value) {
+      if ($value) {
+        $params[] = "$key:$value";
+      }
+    }
+    return implode('+', $params);
+  }
+
+}
