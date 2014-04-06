@@ -1,4 +1,5 @@
 <div class="pure-u-5-5">
+  <p><a href="/?strategy=optin">OPT IN</a></p>
   <form class="pure-form" method="GET">
     <input name="language" placeholder="language" type="text" value="<?= LHF\Input::get('language') ?>" />
     <button class="pure-button pure-button-primary" type="submit">

@@ -15,7 +15,15 @@ class Searcher {
     $resp = Requests::get(
       $total_query
     );
-    $issues = json_decode($resp->body, true)['items'];
+    $body = json_decode($resp->body, true);
+    if (array_key_exists('items', $body)) {
+      $issues = $body['items'];
+    } else if (array_key_exists('message', $body)) {
+      error_log($body['message']);
+      $issues = [];
+    } else {
+      $issues = [];
+    }
     return Issue::fromJSONArray($issues);
   }
 
