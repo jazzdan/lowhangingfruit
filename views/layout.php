@@ -1,3 +1,4 @@
+<? use \LHF; ?>
 <!DOCTYPE html>
 <html>
 
@@ -65,7 +66,7 @@
         <h1>Low Hanging Fruit</h1>
       </header>
 
-      <? require "../views/$path.php" ?>
+      <? require "../views/$view.php" ?>
 
     </div>
   <body>

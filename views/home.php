@@ -1,6 +1,6 @@
 <div class="pure-u-5-5">
   <form class="pure-form" method="GET">
-    <input name="language" placeholder="language" type="text" value="<?= getInput('language') ?>" />
+    <input name="language" placeholder="language" type="text" value="<?= LHF\Input::get('language') ?>" />
     <button class="pure-button pure-button-primary" type="submit">
       Find Issues
     </button>
@@ -9,7 +9,7 @@
 
 <div class="pure-u-5-5">
   <h2>
-    <?= ucwords(getInput('language', 'all')) ?> Issues (<?= count($data) ?>)
+    <?= ucwords(LHF\Input::get('language', 'all')) ?> Issues (<?= count($data) ?>)
   </h2>
   <ul class="unstyled">
     <? foreach ($data as $issue) { ?>

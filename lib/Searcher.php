@@ -5,15 +5,9 @@ use \Requests;
 use \stdClass;
 
 class Searcher {
-  
-  public function all(): Vector<Issue> {
-    return $this->fetch();
-  }
 
-  public function byLanguage(string $language): Vector<Issue> {
-    return $this->fetch(
-      "language:$language"
-    );
+  public function find(?Map<string, string> $query=null): Vector<Issue> {
+    return $this->fetch(static::stringifyQuery($query));
   }
 
   private function fetch(string $query = ''): Vector<Issue> {
@@ -23,5 +17,15 @@ class Searcher {
     $issues = json_decode($resp->body, true)['items'];
     return Issue::fromJSONArray($issues);
   }
-}
 
+  private function stringifyQuery(?Map<string, string> $query): string {
+    if (!$query) {
+      return '';
+    }
+    $params = array();
+    foreach ($query as $key => $value) {
+      $params[] = "$key:$value";
+    }
+    return implode('+', $params);
+  }
+}
