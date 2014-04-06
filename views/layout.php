@@ -15,6 +15,9 @@
       header {
         text-align: center;
       }
+      footer {
+        text-align: center;
+      }
       .issue {
         border: 1px solid #eee;
         border-radius: 4px;
@@ -67,7 +70,9 @@
       </header>
 
       <? require "../views/$view.php" ?>
-
+      <footer class="pure-u-5-5">
+        <small><p>&lt;3 <a href="http://colbyr.com">Colby</a> &amp; <a href="http://dmiller.io">Dan</a></p></small>
+      </footer>
     </div>
   <body>
 
