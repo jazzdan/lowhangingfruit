@@ -9,7 +9,7 @@
 
 <div class="pure-u-5-5">
   <h2>
-    <?= ucwords(LHF\Input::get('language', 'all')) ?> Issues (<?= count($data) ?>)
+    <?= ucwords(LHF\Input::get('language', 'all')) ?> issues (<?= count($data) ?>)
   </h2>
   <ul class="unstyled">
     <? foreach ($data as $issue) { ?>

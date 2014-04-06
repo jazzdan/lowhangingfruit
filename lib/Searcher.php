@@ -24,7 +24,9 @@ class Searcher {
     }
     $params = array();
     foreach ($query as $key => $value) {
-      $params[] = "$key:$value";
+      if ($value) {
+        $params[] = "$key:$value";
+      }
     }
     return implode('+', $params);
   }

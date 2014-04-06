@@ -6,4 +6,11 @@ require_once '../lib/Input.php';
 require_once '../lib/Searcher.php';
 require_once '../lib/View.php';
 
-View::render('home', (new Searcher())->find(Input::get('language')));
+use \HH\Map;
+
+View::render(
+  'home',
+  (new Searcher())->find(Map {
+    'language' => Input::get('language')
+  })
+);
