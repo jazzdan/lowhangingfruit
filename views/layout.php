@@ -46,6 +46,7 @@
           color: #999;
         }
       .page {
+        color: #333;
         margin: 0 auto;
         max-width: 740px;
         padding: 0 10px;
