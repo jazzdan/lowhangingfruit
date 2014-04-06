@@ -7,12 +7,24 @@ require_once '../lib/Searcher.php';
 require_once '../lib/View.php';
 
 use \HH\Map;
-
-View::render(
-  'home',
-  (new Searcher())->find('documentation', Map {
-    'assignee' => 'none',
-    'language' => Input::get('language'),
-    'state' => 'open'
-  })
-);
+if (Input::get('strategy') === 'optin') {
+  error_log("optin strategy");
+  View::render(
+    'home',
+    (new Searcher())->find('', Map {
+      'assignee' => 'none',
+      'state' => 'open',
+      'label' => 'lhf'
+    })
+  );
+} else {
+  error_log("regular strategy");
+  View::render(
+    'home',
+    (new Searcher())->find('documentation', Map {
+      'assignee' => 'none',
+      'language' => Input::get('language'),
+      'state' => 'open'
+    })
+  );
+}

@@ -11,8 +11,10 @@ class Searcher {
   }
 
   private function fetch(string $query, string $params): Vector<Issue> {
+    $total_query = "https://api.github.com/search/issues?q=$query+$params";
+    error_log($total_query);
     $resp = Requests::get(
-      "https://api.github.com/search/issues?q=$query+$params&sort=created&order=asc&per_page=100"
+      $total_query
     );
     $issues = json_decode($resp->body, true)['items'];
     return Issue::fromJSONArray($issues);
