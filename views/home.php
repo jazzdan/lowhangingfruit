@@ -1,5 +1,7 @@
+
+<? if (LHF\Input::get('strategy') !== 'optin') { ?>
 <div class="pure-u-5-5">
-  <p><a href="/?strategy=optin">OPT IN</a></p>
+  <p class="strategy"><a href="/?strategy=optin">See Confirmed Low Hanging Fruit</a></p>
   <form class="pure-form" method="GET">
     <input name="language" placeholder="language" type="text" value="<?= LHF\Input::get('language') ?>" />
     <button class="pure-button pure-button-primary" type="submit">
@@ -7,7 +9,11 @@
     </button>
   </form>
 </div>
-
+<? } else { ?>
+<div class="pure-u-5-5">
+  <p class="strategy"><a href="/">See Suspected Low Hanging Fruit</a></p>
+</div>
+<? } ?>
 <div class="pure-u-5-5">
   <h2>
     <?= ucwords(LHF\Input::get('language', 'all')) ?> issues (<?= count($data) ?>)

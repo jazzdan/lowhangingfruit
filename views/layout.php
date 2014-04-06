@@ -62,6 +62,9 @@
         max-width: 740px;
         padding: 0 10px;
       }
+      .strategy {
+        text-align: center;
+      }
       ol.unstyled,
       ul.unstyled {
         list-style: none;
